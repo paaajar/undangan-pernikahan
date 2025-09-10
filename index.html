@@ -42,6 +42,10 @@
   </head>
 
   <body>
+    <audio id="wedding-audio" src="lagu.m4a" autoplay loop></audio>
+    <button id="audio-toggle" style="position:fixed;top:20px;right:20px;z-index:9999;">
+      <span id="audio-icon">🔊</span>
+    </button>
     <!-- Begin Preloader -->
     <div class="preloader-wrapper">
       <div class="preloader">
@@ -359,6 +363,19 @@
         easing: "ease-out",
         duration: 800,
       });
+      // Audio Control
+        const audio = document.getElementById('wedding-audio');
+  const btn = document.getElementById('audio-toggle');
+  const icon = document.getElementById('audio-icon');
+  btn.onclick = function() {
+    if (audio.paused) {
+      audio.play();
+      icon.textContent = '🔊';
+    } else {
+      audio.pause();
+      icon.textContent = '🔇';
+    }
+  };
     </script>
   </body>
 </html>
